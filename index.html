@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="An IB MYP Year 3 Mathematics Exploration into the Islamic Golden Age of Mathematics: al-Khwarizmi, al-jabr, the Hindu-Arabic numeral system, and the House of Wisdom in Baghdad." />
+<title>The Islamic Golden Age of Mathematics</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230A0A12'/%3E%3Cdefs%3E%3Cmask id='fav-m'%3E%3Ccircle cx='14' cy='16' r='10' fill='white'/%3E%3Ccircle cx='18.8' cy='16' r='8' fill='black'/%3E%3C/mask%3E%3C/defs%3E%3Ccircle cx='14' cy='16' r='10' fill='%23C9A84C' mask='url(%23fav-m)'/%3E%3C/svg%3E">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  /* ---------- Reset & base ---------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A12;
+    --bg-alt: #0F1629;
+    --bg-deep: #111827;
+    --text: #F0E6D3;
+    --text-muted: #c9bfa7;
+    --gold: #C9A84C;
+    --gold-soft: #b89339;
+    --gold-faint: rgba(201, 168, 76, 0.18);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', 'Source Sans Pro', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 300;
+    /* subtle illuminated-manuscript texture via layered gradients */
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(201, 168, 76, 0.06), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(201, 168, 76, 0.05), transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(15, 22, 41, 0.4), transparent 70%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ---------- Typography ---------- */
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+  h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--gold); margin-bottom: 1.2rem; }
+  h3 { font-size: clamp(1.25rem, 2.5vw, 1.6rem); color: var(--gold); margin: 1.6rem 0 0.8rem; }
+  h4 { font-size: 1.1rem; color: var(--text); margin: 1rem 0 0.4rem; font-family: var(--sans); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  p { margin-bottom: 1.1rem; }
+  a { color: var(--gold); text-decoration: none; transition: color 0.2s ease; }
+  a:hover { color: #fff; }
+
+  strong { color: var(--gold); font-weight: 600; }
+  em.arabic { font-style: italic; color: var(--text); }
+
+  /* ---------- Layout ---------- */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  section.alt {
+    background-color: var(--bg-alt);
+    box-shadow: inset 0 1px 0 rgba(201, 168, 76, 0.08), inset 0 -1px 0 rgba(201, 168, 76, 0.08);
+  }
+
+  /* ---------- Gold divider ---------- */
+  .gold-divider {
+    display: block;
+    margin: 2.5rem auto;
+    width: 220px;
+    height: 24px;
+    overflow: visible;
+  }
+  .gold-divider line { stroke: var(--gold); stroke-width: 1; }
+  .gold-divider circle { fill: var(--gold); }
+  .gold-divider path { stroke: var(--gold); stroke-width: 1; fill: none; }
+
+  /* ---------- Navigation ---------- */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 18, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gold-faint);
+  }
+  nav.top .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  nav.top .brand {
+    font-family: var(--serif);
+    color: var(--gold);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 0.45em;
+  }
+  nav.top ul {
+    list-style: none;
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+  nav.top a {
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  nav.top a:hover { color: var(--gold); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    text-align: center;
+    padding: 7rem 1.5rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, rgba(201, 168, 76, 0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .hero .crescent {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+  .hero h1 {
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 .accent { color: var(--gold); }
+  .hero .subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold);
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  .hero .tagline {
+    max-width: 640px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .hero .arabic-script {
+    font-family: var(--serif);
+    color: var(--gold);
+    font-size: 2rem;
+    margin-top: 2rem;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  /* Three.js hero canvas — sits behind the hero */
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero::before { z-index: 0; }
+
+  /* Split-text char wrapping for hero h1 */
+  .hero h1 .char {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+
+  /* ---------- Pull quote ---------- */
+  blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold);
+    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+    line-height: 1.5;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    margin: 2rem 0;
+    border-left: 3px solid var(--gold);
+    background: rgba(201, 168, 76, 0.04);
+  }
+  blockquote cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---------- Number table ---------- */
+  .table-wrap { overflow-x: auto; margin: 2rem 0; }
+  table.numerals {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.95rem;
+    min-width: 640px;
+  }
+  table.numerals th {
+    background: var(--gold);
+    color: #1a1408;
+    font-family: var(--serif);
+    font-weight: 700;
+    padding: 0.9rem 0.8rem;
+    text-align: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    border: 1px solid var(--gold-soft);
+  }
+  table.numerals td {
+    padding: 0.85rem 0.8rem;
+    text-align: center;
+    border: 1px solid rgba(201, 168, 76, 0.18);
+  }
+  table.numerals tbody tr:nth-child(odd) { background: rgba(255, 255, 255, 0.02); }
+  table.numerals tbody tr:nth-child(even) { background: rgba(201, 168, 76, 0.04); }
+  table.numerals td.value { font-family: var(--serif); color: var(--gold); font-weight: 700; font-size: 1.15rem; }
+  table.numerals td.expr { font-family: 'Courier New', monospace; font-size: 0.88rem; color: var(--text-muted); text-align: left; }
+  table.numerals .zero-cell { color: rgba(240, 230, 211, 0.35); }
+
+  .rule-box {
+    background: rgba(201, 168, 76, 0.06);
+    border: 1px solid var(--gold-faint);
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.4rem;
+    margin: 1.6rem 0;
+    border-radius: 2px;
+  }
+  .rule-box .label {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.4rem;
+  }
+  .rule-box .formula {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--text);
+    font-size: 1.15rem;
+  }
+
+  /* ---------- Two column comparison ---------- */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 2rem;
+    margin: 2.5rem 0 1.5rem;
+    align-items: start;
+  }
+  .comparison .col {
+    padding: 0.5rem 0;
+  }
+  .comparison .divider {
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+    height: 100%;
+    min-height: 200px;
+  }
+  .comparison h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .comparison .col p, .comparison .col li { font-size: 0.95rem; }
+  .comparison ol { padding-left: 1.3rem; }
+  .comparison ol li { margin-bottom: 0.6rem; }
+  .comparison .eq {
+    font-family: 'Courier New', monospace;
+    background: rgba(201, 168, 76, 0.06);
+    padding: 0.6rem 0.9rem;
+    border-left: 2px solid var(--gold);
+    margin: 0.6rem 0;
+    color: var(--text);
+    font-size: 0.95rem;
+    display: block;
+  }
+
+  @media (max-width: 760px) {
+    .comparison {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .comparison .divider {
+      width: 100%;
+      height: 1px;
+      min-height: 0;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 1rem 0;
+    }
+  }
+
+  /* ---------- Geometric SVG figure ---------- */
+  .figure {
+    margin: 2.5rem auto;
+    text-align: center;
+    max-width: 460px;
+  }
+  .figure svg { width: 100%; height: auto; }
+  .figure figcaption {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  /* ---------- Comparison table (Greek vs Islamic) ---------- */
+  .compare-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.92rem; }
+  .compare-table th, .compare-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid rgba(201, 168, 76, 0.15); vertical-align: top; }
+  .compare-table th { background: rgba(201, 168, 76, 0.08); color: var(--gold); font-family: var(--serif); font-weight: 700; }
+  .compare-table tr:hover td { background: rgba(201, 168, 76, 0.04); }
+
+  /* ---------- References ---------- */
+  .refs {
+    list-style: none;
+    counter-reset: refcounter;
+    padding-left: 0;
+  }
+  .refs li {
+    counter-increment: refcounter;
+    padding: 0.9rem 0 0.9rem 2.6rem;
+    border-bottom: 1px dotted rgba(201, 168, 76, 0.18);
+    position: relative;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .refs li::before {
+    content: "[" counter(refcounter) "]";
+    position: absolute;
+    left: 0;
+    top: 0.9rem;
+    color: var(--gold);
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .refs li:last-child { border-bottom: none; }
+  .refs .work { font-style: italic; color: var(--text); }
+
+  /* ---------- Scholar cards ---------- */
+  .scholars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+  .scholar-card {
+    background: rgba(15, 22, 41, 0.6);
+    border: 1px solid var(--gold-faint);
+    border-top: 2px solid var(--gold);
+    padding: 1.3rem 1.2rem;
+    border-radius: 2px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .scholar-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+  }
+  .scholar-card h4 {
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 0.3rem;
+    font-weight: 700;
+  }
+  .scholar-card .dates {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-style: italic;
+    margin-bottom: 0.6rem;
+  }
+  .scholar-card p { font-size: 0.9rem; margin: 0; line-height: 1.6; }
+
+  /* ---------- Argument section premise blocks ---------- */
+  .premise {
+    background: rgba(15, 22, 41, 0.55);
+    border-left: 3px solid var(--gold);
+    padding: 1.3rem 1.5rem;
+    margin: 1.4rem 0;
+    border-radius: 2px;
+  }
+  .premise .ptag {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    background: rgba(201, 168, 76, 0.12);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+  .premise h4 {
+    margin: 0 0 0.5rem;
+    color: var(--text);
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .premise p { margin-bottom: 0; font-size: 0.95rem; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: #060610;
+    border-top: 2px solid var(--gold);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+  }
+  footer .ornament { color: var(--gold); margin: 0 0.6rem; }
+  footer a { color: var(--gold); }
+  footer .meta { margin-top: 0.6rem; font-size: 0.82rem; opacity: 0.8; letter-spacing: 0.05em; }
+
+  /* ---------- Scroll-reveal animations ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    will-change: opacity, transform;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Misc helpers ---------- */
+  .intro-lead {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-family: var(--serif);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  sup.refcite {
+    color: var(--gold);
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+  sup.refcite a { color: var(--gold); }
+
+  /* small section caption above heading */
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+
+  /* ---------- Scroll progress bar (gold) ---------- */
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--gold);
+    z-index: 9999;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(201, 168, 76, 0.6);
+    transform-origin: left center;
+  }
+
+  /* ---------- Custom cursor (hidden on touch) ---------- */
+  #cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.55) 0%, rgba(201, 168, 76, 0.15) 45%, rgba(201, 168, 76, 0) 75%);
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s ease, height 0.25s ease, background 0.25s ease;
+    mix-blend-mode: screen;
+    display: none;
+  }
+  body.cursor-active #cursor-glow { display: block; }
+  body.cursor-active { cursor: none; }
+  body.cursor-active a,
+  body.cursor-active button,
+  body.cursor-active input,
+  body.cursor-active textarea,
+  body.cursor-active select { cursor: none; }
+  #cursor-glow.expanded {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.4) 0%, rgba(201, 168, 76, 0.12) 50%, rgba(201, 168, 76, 0) 80%);
+  }
+
+  /* ---------- SVG draw-on (dashoffset animation) ---------- */
+  .draw-on path,
+  .draw-on line,
+  .draw-on rect,
+  .draw-on circle {
+    /* dashoffset/array will be set inline by JS for accurate per-element length */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #scroll-progress { display: none; }
+    #cursor-glow { display: none !important; }
+    body.cursor-active { cursor: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SCROLL PROGRESS + CURSOR ============ -->
+<div id="scroll-progress" aria-hidden="true"></div>
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="top" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <span class="brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" height="32" width="32" fill="none" aria-label="Crescent and star emblem">
+        <defs>
+          <mask id="nav-crescent-mask">
+            <circle cx="16" cy="18" r="9" fill="white"/>
+            <circle cx="20.5" cy="18" r="7.2" fill="black"/>
+          </mask>
+        </defs>
+        <!-- Outer decorative ring -->
+        <circle cx="18" cy="18" r="16" stroke="#C9A84C" stroke-width="0.75" opacity="0.6"/>
+        <!-- Crescent moon -->
+        <circle cx="16" cy="18" r="9" fill="#C9A84C" mask="url(#nav-crescent-mask)"/>
+        <!-- Five-pointed star -->
+        <polygon fill="#C9A84C" points="27,7.8 27.52,9.29 29.09,9.32 27.84,10.27 28.29,11.78 27,10.88 25.71,11.78 26.16,10.27 24.91,9.32 26.48,9.29"/>
+      </svg>
+      Bayt al-Ḥikma
+    </span>
+    <ul>
+      <li><a href="#alkhwarizmi">Al-Khwārizmī</a></li>
+      <li><a href="#numerals">Numerals</a></li>
+      <li><a href="#comparison">Quadratic</a></li>
+      <li><a href="#house">House of Wisdom</a></li>
+      <li><a href="#turning">Turning Point</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero reveal">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <svg class="crescent" viewBox="0 0 100 100" aria-hidden="true">
+    <defs>
+      <radialGradient id="goldGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#E8C969"/>
+        <stop offset="100%" stop-color="#C9A84C"/>
+      </radialGradient>
+    </defs>
+    <circle cx="50" cy="50" r="38" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <path d="M 70 25 A 35 35 0 1 0 70 75 A 28 28 0 1 1 70 25 Z" fill="url(#goldGrad)" opacity="0.85"/>
+    <circle cx="50" cy="50" r="46" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.4"/>
+  </svg>
+  <h1 data-split="true">The Islamic Golden Age <span class="accent">of Mathematics</span></h1>
+  <p class="subtitle">From Baghdad to Cordoba — how al-jabr reshaped the language of number</p>
+  <p class="tagline">
+    Between the 8th and 13th centuries, scholars working in Arabic transformed mathematics
+    from a collection of geometric tricks into a systematic science of the unknown.
+    This exploration traces that transformation — and argues that it was the single
+    greatest turning point in the history of mathematical thought.
+  </p>
+  <div class="arabic-script" id="hero-arabic" aria-label="al-jabr in Arabic">الجبر</div>
+</header>
+
+<svg class="gold-divider" viewBox="0 0 220 24" aria-hidden="true">
+  <line x1="0" y1="12" x2="90" y2="12"/>
+  <circle cx="110" cy="12" r="4"/>
+  <line x1="130" y1="12" x2="220" y2="12"/>
+  <path d="M 100 6 Q 110 0 120 6 Q 110 12 100 6 Z" opacity="0.6"/>
+  <path d="M 100 18 Q 110 24 120 18 Q 110 12 100 18 Z" opacity="0.6"/>
+</svg>
+
+<!-- ============ AL-KHWARIZMI ============ -->
+<section id="alkhwarizmi" class="reveal">
+  <div class="container">
+    <span class="eyebrow">Section I</span>
+    <h2>Al-Khwārizmī and the Origin of al-jabr</h2>
+    <p class="intro-lead">
+      The Persian scholar whose name became the word "algorithm," and whose book gave us the word "algebra."
+    </p>
+
+    <p>
+      Muḥammad ibn Mūsā <strong>al-Khwārizmī</strong> (c. 780 – c. 850 CE) was born in Khwārazm, in
+      present-day Uzbekistan, and worked in Baghdad at the court of Caliph al-Maʾmūn during the
+      early ninth century. He was an astronomer, geographer, and mathematician attached to the
+      <em>Bayt al-Ḥikma</em> ("House of Wisdom"), where Greek, Indian, and Persian scientific
+      texts were being systematically translated, criticised, and extended.<sup class="refcite"><a href="#ref1">[1]</a></sup>
+    </p>
+
+    <p>
+      Around 820 CE, al-Khwārizmī completed
+      <em class="arabic">Kitāb al-mukhtaṣar fī ḥisāb al-jabr waʾl-muqābala</em> —
+      "The Compendious Book on Calculation by Restoration and Balancing." Its title gives us
+      two technical terms that still define the discipline:
+    </p>
+
+    <ul style="margin: 0 0 1.5rem 1.5rem;">
+      <li><strong>al-jabr</strong> (الجبر, "restoration") — adding a quantity to <em>both</em> sides of an equation to eliminate a negative term. For example, transforming x² − 5 = 7 into x² = 12.</li>
+      <li><strong>al-muqābala</strong> (المقابلة, "balancing/confrontation") — subtracting equal quantities from both sides, or combining like terms. For example, reducing 3x + 5 = x + 11 to 2x = 6.</li>
+    </ul>
+
+    <blockquote>
+      "That fondness for science... has encouraged me to compose a short work on calculating
+      by al-jabr and al-muqābala, confining it to what is easiest and most useful in arithmetic."
+      <cite>— al-Khwārizmī, preface to <em>Kitāb al-jabr</em>, c. 820 CE<sup class="refcite"><a href="#ref2">[2]</a></sup></cite>
+    </blockquote>
+
+    <h3>Why was this revolutionary?</h3>
+    <p>
+      Before al-Khwārizmī, equations were solved case-by-case, usually through geometry (as in
+      Euclid's <em>Elements</em>) or through verbal arithmetic puzzles (as in Diophantus's
+      <em>Arithmetica</em>, c. 250 CE). There was <em>no general procedure</em> applicable to a
+      whole class of problems. Al-Khwārizmī's innovation was to classify all linear and
+      quadratic equations into six standard forms — for example, "squares equal to roots"
+      (ax² = bx) and "squares and roots equal to numbers" (ax² + bx = c) — and to give a
+      systematic recipe (an <em>algorithm</em>) for solving each one.<sup class="refcite"><a href="#ref3">[3]</a></sup>
+    </p>
+    <p>
+      Although al-Khwārizmī used no symbols — every step was written in full Arabic prose,
+      and every proof was justified geometrically — the <em>method</em> he created was symbolic
+      in spirit. He treated "the unknown" (<em class="arabic">shayʾ</em>, "thing") as an
+      object that could be manipulated according to fixed rules. This is the conceptual seed
+      from which all later algebra grew.
+    </p>
+
+    <p>
+      A practical pressure drove this work: Islamic <em>farāʾiḍ</em> (inheritance) law,
+      derived from the Qurʾān, required precise fractional divisions of estates among many
+      heirs. Al-Khwārizmī devotes the longest section of his book to inheritance problems
+      that simply could not be solved by Greek geometry alone — they demanded a calculus of
+      unknowns.<sup class="refcite"><a href="#ref4">[4]</a></sup>
+    </p>
+  </div>
+</section>
+
+<svg class="gold-divider" viewBox="0 0 220 24" aria-hidden="true">
+  <line x1="0" y1="12" x2="90" y2="12"/><circle cx="110" cy="12" r="4"/>
+  <line x1="130" y1="12" x2="220" y2="12"/>
+</svg>
+
+<!-- ============ NUMERALS ============ -->
+<section id="numerals" class="alt reveal">
+  <div class="container">
+    <span class="eyebrow">Section II</span>
+    <h2>The Hindu-Arabic Numeral System</h2>
+    <p class="intro-lead">
+      A base-10 positional system, transmitted from India through Baghdad to Europe — and the
+      reason we can write 2026 in four symbols instead of MMXXVI.
+    </p>
+
+    <p>
+      Around 825 CE, al-Khwārizmī wrote a second treatise,
+      <em class="arabic">Kitāb fī ḥisāb al-hindī</em> ("Book on Calculation with Hindu Numerals"),
+      describing a base-10 positional system imported from Indian sources — especially
+      Brahmagupta's <em>Brāhmasphuṭasiddhānta</em> (628 CE), which had already formalised
+      zero as a number with its own arithmetic rules.<sup class="refcite"><a href="#ref5">[5]</a></sup>
+      The Arabic word for zero, <em class="arabic">ṣifr</em> (صفر, "empty"), passed into
+      Medieval Latin as <em>zephirum</em>, becoming both "zero" and "cipher" in English.
+    </p>
+
+    <p>
+      In this system, the value of a digit depends on its <em>position</em>. The same symbol
+      "2" means twenty in <strong>26</strong>, two hundred in <strong>200</strong>, and two
+      thousand in <strong>2026</strong>. Zero is essential — it holds a place open when a
+      power of ten contributes nothing to the total.
+    </p>
+
+    <h3>Place-value conversion for seven numbers</h3>
+
+    <div class="table-wrap">
+      <table class="numerals" id="numerals-table">
+        <thead>
+          <tr>
+            <th>Numeral</th>
+            <th>Thousands (10³)</th>
+            <th>Hundreds (10²)</th>
+            <th>Tens (10¹)</th>
+            <th>Units (10⁰)</th>
+            <th>Positional expansion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="value" data-count="1">1</td>
+            <td class="zero-cell">0</td><td class="zero-cell">0</td><td class="zero-cell">0</td><td>1</td>
+            <td class="expr">(1 × 10⁰) = 1</td>
+          </tr>
+          <tr>
+            <td class="value" data-count="7">7</td>
+            <td class="zero-cell">0</td><td class="zero-cell">0</td><td class="zero-cell">0</td><td>7</td>
+            <td class="expr">(7 × 10⁰) = 7</td>
+          </tr>
+          <tr>
+            <td class="value" data-count="19">19</td>
+            <td class="zero-cell">0</td><td class="zero-cell">0</td><td>1</td><td>9</td>
+            <td class="expr">(1 × 10¹) + (9 × 10⁰) = 10 + 9</td>
+          </tr>
+          <tr>
+            <td class="value" data-count="60">60</td>
+            <td class="zero-cell">0</td><td class="zero-cell">0</td><td>6</td><td>0</td>
+            <td class="expr">(6 × 10¹) + (0 × 10⁰) = 60 + 0</td>
+          </tr>
+          <tr>
+            <td class="value" data-count="144">144</td>
+            <td class="zero-cell">0</td><td>1</td><td>4</td><td>4</td>
+            <td class="expr">(1 × 10²) + (4 × 10¹) + (4 × 10⁰)</td>
+          </tr>
+          <tr>
+            <td class="value" data-count="1000">1000</td>
+            <td>1</td><td>0</td><td>0</td><td>0</td>
+            <td class="expr">(1 × 10³) + (0 × 10²) + (0 × 10¹) + (0 × 10⁰)</td>
+          </tr>
+          <tr>
+            <td class="value" data-count="2026">2026</td>
+            <td>2</td><td>0</td><td>2</td><td>6</td>
+            <td class="expr">(2 × 10³) + (0 × 10²) + (2 × 10¹) + (6 × 10⁰)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size: 0.92rem; color: var(--text-muted);">
+      Notice the role of zero in <strong>60</strong>, <strong>1000</strong>, and
+      <strong>2026</strong>: it is not "nothing" — it is a <em>placeholder</em> that keeps
+      the other digits in their correct columns. Without it, "26" and "206" and "2006" would
+      be indistinguishable.
+    </p>
+
+    <div class="rule-box">
+      <div class="label">General rule (positional value)</div>
+      <div class="formula">
+        Value = Σᵢ dᵢ × 10ⁱ &nbsp;&nbsp;where 0 ≤ dᵢ ≤ 9 and i = 0, 1, 2, 3, … from the units place
+      </div>
+    </div>
+
+    <h3>What Roman and Greek numerals could not do</h3>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Feature</th><th>Roman numerals</th><th>Greek alphabetic</th><th>Hindu-Arabic (positional)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>How "2026" looks</td>
+          <td>MMXXVI</td>
+          <td>͵ΒΚϚ</td>
+          <td>2026</td>
+        </tr>
+        <tr>
+          <td>Zero as placeholder</td>
+          <td>Absent</td>
+          <td>Absent</td>
+          <td>Present (ṣifr)</td>
+        </tr>
+        <tr>
+          <td>Position carries value</td>
+          <td>No (additive: V + I = VI)</td>
+          <td>No (each letter = one fixed value)</td>
+          <td>Yes (the 2 in "20" means 2 × 10)</td>
+        </tr>
+        <tr>
+          <td>Easy long multiplication</td>
+          <td>Extremely difficult — requires counting board</td>
+          <td>Difficult — no carry mechanism</td>
+          <td>Routine — algorithmic columns</td>
+        </tr>
+        <tr>
+          <td>Representable size</td>
+          <td>Bounded by available letters</td>
+          <td>Bounded by alphabet</td>
+          <td>Unbounded — any integer with finitely many digits</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This is why the system spread. Through Latin translations of al-Khwārizmī's
+      arithmetic — beginning with <em>Algoritmi de numero Indorum</em> in the twelfth
+      century — and through Fibonacci's <em>Liber Abaci</em> (1202 CE), the Hindu-Arabic
+      numerals reached European merchants, who quickly abandoned Roman numerals for
+      bookkeeping.<sup class="refcite"><a href="#ref6">[6]</a></sup>
+    </p>
+  </div>
+</section>
+
+<svg class="gold-divider" viewBox="0 0 220 24" aria-hidden="true">
+  <line x1="0" y1="12" x2="90" y2="12"/><circle cx="110" cy="12" r="4"/>
+  <line x1="130" y1="12" x2="220" y2="12"/>
+</svg>
+
+<!-- ============ QUADRATIC COMPARISON ============ -->
+<section id="comparison" class="reveal">
+  <div class="container">
+    <span class="eyebrow">Section III</span>
+    <h2>Two Ways of Solving x² + 10x = 39</h2>
+    <p class="intro-lead">
+      The very first worked example in <em>Kitāb al-jabr</em> — solved twice. Once in
+      al-Khwārizmī's geometric prose, once in modern symbolic algebra.
+    </p>
+
+    <p>
+      Al-Khwārizmī chose this equation as his canonical illustration of "squares and roots
+      equal to numbers" (ax² + bx = c). The methods below look superficially different, but
+      they describe the same underlying mathematical operation: <em>completing the square</em>.
+      What modern notation compresses into three lines, al-Khwārizmī had to write — and
+      prove — geometrically.
+    </p>
+
+    <div class="comparison" id="quadratic-comparison">
+
+      <!-- LEFT: Al-Khwarizmi rhetorical/geometric -->
+      <div class="col col-left">
+        <h3>Al-Khwārizmī (c. 820 CE)</h3>
+        <p style="font-style: italic; color: var(--text-muted); font-size: 0.9rem;">
+          Rhetorical & geometric, no symbols
+        </p>
+
+        <blockquote style="font-size: 1rem; padding: 1rem 1rem 1rem 1.4rem; margin: 1rem 0;">
+          "A square and ten roots are equal to thirty-nine dirhams."
+          <cite>— Kitāb al-jabr, Ch. I</cite>
+        </blockquote>
+
+        <ol>
+          <li>Draw a square whose side is the unknown "root" (<em class="arabic">jidhr</em>); its area is <em>the square</em> (māl).</li>
+          <li>On each of its four sides, attach a rectangle of width <em>10 ÷ 4 = 2½</em>. Together with the square, the figure has total area <em>māl + 10·jidhr = 39</em>.</li>
+          <li>The four missing corners are small squares of side 2½, each of area 6¼. Adding all four (total 25) <strong>completes</strong> a larger square.</li>
+          <li>The larger square has area 39 + 25 = <strong>64</strong>, so its side is <strong>√64 = 8</strong>.</li>
+          <li>That side equals the original root plus 2·(2½) = the root plus 5. Hence <em>jidhr + 5 = 8</em>, so the root is <strong>3</strong>.</li>
+        </ol>
+
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          Al-Khwārizmī recognised only the positive root; in his geometric framework,
+          a "negative length" was meaningless. The answer is therefore <strong>x = 3</strong>.
+        </p>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- RIGHT: modern -->
+      <div class="col col-right">
+        <h3>Modern Algebra (today)</h3>
+        <p style="font-style: italic; color: var(--text-muted); font-size: 0.9rem;">
+          Symbolic, with negative roots
+        </p>
+
+        <p><strong>Method 1 — Completing the square</strong></p>
+        <span class="eq">x² + 10x = 39</span>
+        <span class="eq">x² + 10x + 25 = 39 + 25</span>
+        <span class="eq">(x + 5)² = 64</span>
+        <span class="eq">x + 5 = ±8</span>
+        <span class="eq">x = 3 &nbsp; or &nbsp; x = −13</span>
+
+        <p style="margin-top: 1.2rem;"><strong>Method 2 — Quadratic formula</strong></p>
+        <span class="eq">x² + 10x − 39 = 0,&nbsp; a=1, b=10, c=−39</span>
+        <span class="eq">x = (−10 ± √(100 + 156)) / 2</span>
+        <span class="eq">x = (−10 ± √256) / 2 = (−10 ± 16) / 2</span>
+        <span class="eq">x = 3 &nbsp; or &nbsp; x = −13</span>
+
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          Modern notation recovers both roots automatically because the symbol "±" makes no
+          geometric commitment. Al-Khwārizmī's diagram <em>was</em> the completing-the-square
+          method — he simply did not yet have the symbols to write it in two lines.
+        </p>
+      </div>
+    </div>
+
+    <!-- SVG: completing the square -->
+    <figure class="figure" id="completing-square-figure">
+      <svg class="draw-on" viewBox="0 0 360 360" role="img" aria-label="Geometric proof: a square of side x, surrounded by four rectangles of width 2.5, with four small corner squares completing a larger square of side x+5.">
+        <defs>
+          <pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#C9A84C" stroke-width="0.5" opacity="0.35"/>
+          </pattern>
+        </defs>
+
+        <!-- outer bounding square (x+5) -->
+        <rect x="40" y="40" width="280" height="280" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+
+        <!-- central x² square (side 180, scaled) -->
+        <rect x="90" y="90" width="180" height="180" fill="rgba(201,168,76,0.18)" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="180" y="185" fill="#F0E6D3" font-family="Playfair Display" font-style="italic" font-size="22" text-anchor="middle">x²</text>
+
+        <!-- four rectangles, each width 50 (representing 2.5), length 180 (representing x) -->
+        <!-- top -->
+        <rect x="90" y="40" width="180" height="50" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1"/>
+        <text x="180" y="72" fill="#C9A84C" font-family="Inter" font-size="11" text-anchor="middle">2.5 · x</text>
+        <!-- bottom -->
+        <rect x="90" y="270" width="180" height="50" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1"/>
+        <text x="180" y="302" fill="#C9A84C" font-family="Inter" font-size="11" text-anchor="middle">2.5 · x</text>
+        <!-- left -->
+        <rect x="40" y="90" width="50" height="180" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1"/>
+        <text x="65" y="185" fill="#C9A84C" font-family="Inter" font-size="11" text-anchor="middle" transform="rotate(-90 65 185)">2.5 · x</text>
+        <!-- right -->
+        <rect x="270" y="90" width="50" height="180" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1"/>
+        <text x="295" y="185" fill="#C9A84C" font-family="Inter" font-size="11" text-anchor="middle" transform="rotate(90 295 185)">2.5 · x</text>
+
+        <!-- four corner squares (2.5 × 2.5 = 6.25 each), hatched -->
+        <rect x="40" y="40" width="50" height="50" fill="url(#hatch)" stroke="#C9A84C" stroke-width="1"/>
+        <rect x="270" y="40" width="50" height="50" fill="url(#hatch)" stroke="#C9A84C" stroke-width="1"/>
+        <rect x="40" y="270" width="50" height="50" fill="url(#hatch)" stroke="#C9A84C" stroke-width="1"/>
+        <rect x="270" y="270" width="50" height="50" fill="url(#hatch)" stroke="#C9A84C" stroke-width="1"/>
+
+        <!-- corner labels (small, the four corner squares = 4 × 6.25 = 25) -->
+        <text x="65" y="68" fill="#F0E6D3" font-family="Inter" font-size="9" text-anchor="middle">6.25</text>
+        <text x="295" y="68" fill="#F0E6D3" font-family="Inter" font-size="9" text-anchor="middle">6.25</text>
+        <text x="65" y="298" fill="#F0E6D3" font-family="Inter" font-size="9" text-anchor="middle">6.25</text>
+        <text x="295" y="298" fill="#F0E6D3" font-family="Inter" font-size="9" text-anchor="middle">6.25</text>
+
+        <!-- outer dimension brackets -->
+        <text x="180" y="30" fill="#C9A84C" font-family="Playfair Display" font-style="italic" font-size="14" text-anchor="middle">x + 5</text>
+        <text x="22" y="185" fill="#C9A84C" font-family="Playfair Display" font-style="italic" font-size="14" text-anchor="middle" transform="rotate(-90 22 185)">x + 5</text>
+
+        <!-- summary equation -->
+        <text x="180" y="350" fill="#F0E6D3" font-family="Playfair Display" font-style="italic" font-size="13" text-anchor="middle">(x + 5)² = x² + 10x + 25 = 39 + 25 = 64</text>
+      </svg>
+      <figcaption>
+        Completing the square — al-Khwārizmī's geometric construction for x² + 10x = 39.
+        The four shaded corner squares (each of area 6¼) "complete" the larger square of side x + 5.
+      </figcaption>
+    </figure>
+
+    <h3>Bridging the two methods</h3>
+    <p>
+      The geometric figure above <em>is</em> the algebraic identity (x + 5)² = x² + 10x + 25.
+      Al-Khwārizmī did not call it that — he had no parentheses, no variables, no "²"
+      symbol — but the logical move is identical. We can therefore say something sharper than
+      "al-Khwārizmī invented algebra": <strong>he discovered the procedure of completing the
+      square, justified it geometrically, and generalised it into a recipe.</strong>
+      The symbolic notation that lets us compress his diagram into "(x + 5)² = 64" arrived
+      gradually — through Viète in the late 16th century and Descartes in 1637 — but the
+      <em>method</em> was already complete in Baghdad more than 700 years earlier.
+    </p>
+  </div>
+</section>
+
+<svg class="gold-divider" viewBox="0 0 220 24" aria-hidden="true">
+  <line x1="0" y1="12" x2="90" y2="12"/><circle cx="110" cy="12" r="4"/>
+  <line x1="130" y1="12" x2="220" y2="12"/>
+</svg>
+
+<!-- ============ HOUSE OF WISDOM ============ -->
+<section id="house" class="alt reveal">
+  <div class="container">
+    <span class="eyebrow">Section IV</span>
+    <h2>The House of Wisdom in Baghdad</h2>
+    <p class="intro-lead">
+      A library, a translation bureau, and an observatory — the institution that made the
+      Golden Age possible.
+    </p>
+
+    <p>
+      Baghdad was founded in 762 CE by the Abbasid Caliph al-Manṣūr as the new capital of an
+      empire that stretched from Spain to Central Asia. Within a generation it had become the
+      largest city in the world outside China. Its circular plan placed the caliph's palace
+      at the centre, but its intellectual heart was the <em>Bayt al-Ḥikma</em> (بيت الحكمة),
+      the "House of Wisdom" — a library and research institution that flourished especially
+      under Caliphs <strong>Hārūn al-Rashīd</strong> (r. 786–809) and his son
+      <strong>al-Maʾmūn</strong> (r. 813–833).<sup class="refcite"><a href="#ref7">[7]</a></sup>
+    </p>
+
+    <p>
+      Al-Maʾmūn reportedly sent diplomatic missions to Constantinople specifically to acquire
+      Greek manuscripts, and offered translators their weight in gold. The
+      <strong>Graeco-Arabic translation movement</strong> that followed — spanning roughly
+      750 to 1000 CE — rendered Aristotle, Euclid, Ptolemy, Archimedes, Apollonius, Galen,
+      and Diophantus into Arabic, often with critical commentaries that surpassed the
+      originals.<sup class="refcite"><a href="#ref8">[8]</a></sup> Indian astronomical and
+      arithmetical works (the <em>Siddhāntas</em>) and Persian texts on algebra and
+      astronomy were translated in parallel. The House of Wisdom was thus not merely a
+      passive library but the world's first sustained cross-cultural research programme.
+    </p>
+
+    <h3>Key scholars associated with the tradition</h3>
+    <div class="scholars" id="scholars-grid">
+      <div class="scholar-card">
+        <h4>Al-Khwārizmī</h4>
+        <div class="dates">c. 780 – c. 850 CE</div>
+        <p>Founder of algebra as a discipline. Wrote <em>Kitāb al-jabr</em> and the
+        arithmetic treatise that introduced Hindu numerals to the Arabic-speaking world.</p>
+      </div>
+      <div class="scholar-card">
+        <h4>The Banū Mūsā</h4>
+        <div class="dates">9th century CE</div>
+        <p>Three brothers — Muḥammad, Aḥmad, and al-Ḥasan — who funded translators,
+        commissioned manuscripts, and wrote the <em>Book on the Measurement of Plane and Spherical Figures</em>.</p>
+      </div>
+      <div class="scholar-card">
+        <h4>Thābit ibn Qurra</h4>
+        <div class="dates">836 – 901 CE</div>
+        <p>Sabian translator-mathematician who produced the definitive Arabic Euclid and
+        extended Greek number theory, including a famous theorem on amicable numbers.</p>
+      </div>
+      <div class="scholar-card">
+        <h4>Al-Battānī</h4>
+        <div class="dates">c. 858 – 929 CE</div>
+        <p>Astronomer whose trigonometric tables — using sines rather than Ptolemy's chords —
+        later guided Copernicus and Kepler.</p>
+      </div>
+      <div class="scholar-card">
+        <h4>Al-Karajī</h4>
+        <div class="dates">c. 953 – 1029 CE</div>
+        <p>In <em>al-Fakhrī</em> and <em>al-Badīʿ</em>, he freed algebra from geometric
+        reasoning and developed polynomial arithmetic and an early form of mathematical induction.</p>
+      </div>
+      <div class="scholar-card">
+        <h4>Omar Khayyām</h4>
+        <div class="dates">1048 – 1131 CE</div>
+        <p>Solved cubic equations geometrically by intersecting conic sections; reformed the
+        solar calendar to an accuracy rivalling the modern Gregorian one.</p>
+      </div>
+    </div>
+
+    <p>
+      The House of Wisdom's golden age ended with the Mongol sack of Baghdad in 1258 CE, when
+      the libraries were destroyed and the surviving scholars dispersed. By then, however,
+      the mathematical achievements of the tradition had already begun travelling westward
+      through al-Andalus (Islamic Spain) into the Latin-reading universities of Europe —
+      seeding the Scientific Revolution that would follow four centuries later.
+    </p>
+  </div>
+</section>
+
+<svg class="gold-divider" viewBox="0 0 220 24" aria-hidden="true">
+  <line x1="0" y1="12" x2="90" y2="12"/><circle cx="110" cy="12" r="4"/>
+  <line x1="130" y1="12" x2="220" y2="12"/>
+</svg>
+
+<!-- ============ TURNING POINT ARGUMENT ============ -->
+<section id="turning" class="reveal">
+  <div class="container">
+    <span class="eyebrow">Section V — Central Argument</span>
+    <h2>Why al-jabr is the Greatest Turning Point in the History of Mathematics</h2>
+    <p class="intro-lead">
+      The thesis of this exploration: that the invention of <em>al-jabr</em> — the systematic,
+      symbolic-in-spirit manipulation of unknown quantities — is the single transformation
+      from which all of modern mathematical thought descends.
+    </p>
+
+    <p>
+      Many candidates compete for the title of "greatest turning point": the Babylonian
+      base-60 place-value system; Greek deductive proof in Euclid; the calculus of Newton
+      and Leibniz; Cantor's set theory; Gödel's incompleteness. Each is profound. But the
+      argument made here is that al-Khwārizmī's <em>al-jabr</em> is more fundamental than
+      any of them, because each of them <em>presupposes</em> the move that al-jabr made
+      first: <strong>treating an unknown quantity as an object that obeys rules of
+      manipulation</strong>. Five premises support this thesis.
+    </p>
+
+    <div class="premise">
+      <span class="ptag">Premise 1 — Generality</span>
+      <h4 class="premise-heading" data-typewriter="Al-jabr replaced case-by-case puzzles with universal procedure.">Al-jabr replaced case-by-case puzzles with universal procedure.</h4>
+      <p>
+        Diophantus, writing around 250 CE, solved roughly 150 individual equation puzzles —
+        each with its own ingenious trick. Al-Khwārizmī instead classified all linear and
+        quadratic equations into six standard forms and provided an algorithm for each. The
+        difference between "I can solve <em>this</em> problem" and "I can solve <em>every</em>
+        problem of this type" is the difference between a craft and a science.<sup class="refcite"><a href="#ref3">[3]</a></sup>
+      </p>
+    </div>
+
+    <div class="premise">
+      <span class="ptag">Premise 2 — Abstraction of the unknown</span>
+      <h4 class="premise-heading" data-typewriter="Al-jabr treats the unknown as an object, not an absence.">Al-jabr treats the unknown as an object, not an absence.</h4>
+      <p>
+        Before al-Khwārizmī, "the thing we don't know yet" was a gap waiting to be filled by
+        geometric construction. Al-jabr reverses this: the unknown (<em class="arabic">shayʾ</em>)
+        is itself the subject of operations — you can add to it, subtract from it, square it,
+        balance it across an equals sign. This is exactly the conceptual move that later
+        permits the symbol "x" of Descartes, the variable of calculus, and ultimately the
+        abstract objects of group theory and topology.
+      </p>
+    </div>
+
+    <div class="premise">
+      <span class="ptag">Premise 3 — Algorithmic thinking</span>
+      <h4 class="premise-heading" data-typewriter="Al-jabr is the first body of mathematics that is also a computer program.">Al-jabr is the first body of mathematics that is also a computer program.</h4>
+      <p>
+        Al-Khwārizmī's six standard forms come with explicit step-by-step recipes — what we
+        now call <em>algorithms</em>, a word descended from his own name. This is why a
+        modern computer can be programmed to solve a quadratic: not because Babylonian
+        scribes solved one in 1800 BCE, but because al-Khwārizmī articulated a
+        <em>procedure</em> that could be written down, taught, and mechanically followed.<sup class="refcite"><a href="#ref9">[9]</a></sup>
+      </p>
+    </div>
+
+    <div class="premise">
+      <span class="ptag">Premise 4 — Synthesis</span>
+      <h4 class="premise-heading" data-typewriter="Al-jabr is the first genuinely cross-cultural mathematics.">Al-jabr is the first genuinely cross-cultural mathematics.</h4>
+      <p>
+        Greek deductive geometry, Indian decimal arithmetic, and Persian astronomical
+        practice had never been brought together. Al-Khwārizmī's work fuses them: Indian
+        numerals to write the numbers, Greek geometry to justify the proofs, Persian
+        practical problems to motivate the questions. Every later mathematical tradition —
+        European, Ottoman, Mughal — inherits this synthesis rather than any single ancestor.
+      </p>
+    </div>
+
+    <div class="premise">
+      <span class="ptag">Premise 5 — Downstream consequence</span>
+      <h4 class="premise-heading" data-typewriter="Without al-jabr there is no calculus, no physics, no engineering as we know them.">Without al-jabr there is no calculus, no physics, no engineering as we know them.</h4>
+      <p>
+        Calculus is the algebra of changing quantities; Newton's <em>Principia</em> (1687)
+        is unthinkable without symbolic manipulation of unknowns. The same applies to
+        coordinate geometry, linear algebra, statistics, and machine learning — all of them
+        descend technically and conceptually from the move al-Khwārizmī made when he wrote
+        that a square and ten roots equal thirty-nine, and proved how to find the root.
+      </p>
+    </div>
+
+    <h3>Anticipating the counter-arguments</h3>
+    <p>
+      Could one not argue that the <em>Hindu-Arabic numerals</em> are the real turning point?
+      They are certainly indispensable, but they are a notational invention: they let us
+      <em>write</em> numbers efficiently. Al-jabr is a <em>conceptual</em> invention: it lets
+      us <em>reason</em> about unknown numbers. Notation without reasoning is bookkeeping;
+      reasoning without notation is still mathematics (al-Khwārizmī did it in prose). Of the
+      two, the reasoning is primary.
+    </p>
+    <p>
+      Could one not argue that Greek <em>deductive proof</em> matters more? Proof is the
+      criterion by which a mathematical claim is judged true. But proof needs propositions to
+      prove. Al-jabr generates an unending supply of propositions about unknowns — and so
+      gives proof something new and powerful to work on. The two are complementary; but
+      after al-jabr, the scope of what could even be proven expanded enormously.
+    </p>
+
+    <blockquote>
+      "Al-Khwārizmī's algebra is regarded as the foundation and cornerstone of the sciences.
+      The subject deals with what is general in number — that is, with the abstract."
+      <cite>— Roshdi Rashed, <em>The Development of Arabic Mathematics</em>, 1994<sup class="refcite"><a href="#ref10">[10]</a></sup></cite>
+    </blockquote>
+
+    <p>
+      <strong>Conclusion of the argument:</strong> the invention of al-jabr in early
+      ninth-century Baghdad — systematic, general, algorithmic, cross-cultural, and
+      conceptually freeing the unknown to become an object of operation — is the
+      transformation from which the rest of modern mathematics flows. It is the moment
+      mathematics ceased to be a collection of solutions and became a method.
+    </p>
+  </div>
+</section>
+
+<svg class="gold-divider" viewBox="0 0 220 24" aria-hidden="true">
+  <line x1="0" y1="12" x2="90" y2="12"/><circle cx="110" cy="12" r="4"/>
+  <line x1="130" y1="12" x2="220" y2="12"/>
+</svg>
+
+<!-- ============ REFERENCES ============ -->
+<section id="references" class="alt reveal">
+  <div class="container">
+    <span class="eyebrow">Section VI</span>
+    <h2>References</h2>
+    <p class="intro-lead">
+      Primary sources are listed first; secondary scholarship follows. Citations use a
+      combination of MLA-style and IB-appropriate descriptive form.
+    </p>
+
+    <h3>Primary sources</h3>
+    <ol class="refs">
+      <li id="ref1">
+        Al-Khwārizmī, Muḥammad ibn Mūsā. <span class="work">Kitāb al-mukhtaṣar fī ḥisāb al-jabr waʾl-muqābala</span>
+        [The Compendious Book on Calculation by Restoration and Balancing]. Baghdad, c. 820 CE.
+        Translated into English by Frederic Rosen as <em>The Algebra of Mohammed Ben Musa</em>,
+        Oriental Translation Fund, London, 1831.
+      </li>
+      <li id="ref2">
+        Al-Khwārizmī, Muḥammad ibn Mūsā. Preface to <span class="work">Kitāb al-jabr</span>, c. 820 CE.
+        Quoted in Rosen (1831), pp. 3–4; and in Berggren (1986), p. 102.
+      </li>
+      <li id="ref5">
+        Brahmagupta. <span class="work">Brāhmasphuṭasiddhānta</span> [Correctly Established Doctrine of Brahma].
+        India, 628 CE. Edited by H. T. Colebrooke, <em>Algebra, with Arithmetic and Mensuration, from the Sanscrit of Brahmegupta and Bhascara</em>, John Murray, London, 1817.
+      </li>
+      <li id="ref6">
+        Fibonacci, Leonardo (Leonardo Pisano). <span class="work">Liber Abaci</span>. Pisa, 1202 CE.
+        Translated by L. E. Sigler, <em>Fibonacci's Liber Abaci: A Translation into Modern English of Leonardo Pisano's Book of Calculation</em>, Springer, New York, 2002.
+      </li>
+    </ol>
+
+    <h3>Secondary scholarship</h3>
+    <ol class="refs" start="5" style="counter-reset: refcounter 4;">
+      <li id="ref3">
+        Berggren, J. Lennart. <span class="work">Episodes in the Mathematics of Medieval Islam</span>.
+        2nd ed., Springer, New York, 2016. Chapters 1 and 3 on al-Khwārizmī's six canonical forms.
+      </li>
+      <li id="ref4">
+        Gandz, Solomon. "The Algebra of Inheritance: A Rehabilitation of al-Khuwārizmī." <span class="work">Osiris</span>, vol. 5, 1938, pp. 319–391.
+      </li>
+      <li id="ref7">
+        Lyons, Jonathan. <span class="work">The House of Wisdom: How the Arabs Transformed Western Civilization</span>.
+        Bloomsbury, New York, 2009.
+      </li>
+      <li id="ref8">
+        Gutas, Dimitri. <span class="work">Greek Thought, Arabic Culture: The Graeco-Arabic Translation Movement in Baghdad and Early ʿAbbāsid Society (2nd–4th / 8th–10th centuries)</span>.
+        Routledge, London, 1998.
+      </li>
+      <li id="ref9">
+        Boyer, Carl B., and Uta C. Merzbach. <span class="work">A History of Mathematics</span>.
+        3rd ed., John Wiley &amp; Sons, Hoboken NJ, 2011. Chapter 13 ("The Arabic Hegemony").
+      </li>
+      <li id="ref10">
+        Rashed, Roshdi. <span class="work">The Development of Arabic Mathematics: Between Arithmetic and Algebra</span>.
+        Translated by A. F. W. Armstrong, Kluwer Academic Publishers, Dordrecht, 1994.
+      </li>
+      <li>
+        Katz, Victor J. <span class="work">A History of Mathematics: An Introduction</span>.
+        3rd ed., Addison-Wesley, Boston, 2009. Chapter 9 ("The Mathematics of Islam").
+      </li>
+      <li>
+        Høyrup, Jens. <span class="work">Lengths, Widths, Surfaces: A Portrait of Old Babylonian Algebra and Its Kin</span>.
+        Springer, New York, 2002. (Context for pre-Islamic algebraic traditions.)
+      </li>
+      <li>
+        O'Connor, J. J., and E. F. Robertson. "Abu Ja'far Muhammad ibn Musa Al-Khwarizmi."
+        <span class="work">MacTutor History of Mathematics Archive</span>, University of St Andrews, 1999.
+        mathshistory.st-andrews.ac.uk/Biographies/Al-Khwarizmi/
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div>
+    <span class="ornament">✦</span>
+  </div>
+  <div class="meta">
+    IB MYP Year 3 Mathematics Exploration &middot; 2026
+  </div>
+  <div class="meta" style="margin-top: 0.4rem; opacity: 0.55; font-style: italic;">
+    "And whatsoever ye do, do all in the name of knowledge." &mdash; in the spirit of the Bayt al-Ḥikma
+  </div>
+</footer>
+
+<!-- ============ EXISTING SCROLL-REVEAL FALLBACK ============ -->
+<script>
+  (function () {
+    const reveals = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      reveals.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => io.observe(el));
+  })();
+</script>
+
+<!-- ============ ANIMATION LIBRARIES (CDNs, ordered) ============ -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+
+<!-- ============ ANIMATION ORCHESTRATION ============ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+  // If reduced motion is requested, skip every animation entirely.
+  if (prefersReduced) {
+    // Make sure number cells already show their final values (they do; data-count == innerHTML).
+    return;
+  }
+
+  // ============================================================
+  // 1. THREE.JS HERO BACKGROUND (geometric pattern + particles)
+  // ============================================================
+  (function initThree() {
+    if (typeof THREE === 'undefined') return;
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    const hero = canvas.parentElement;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+    camera.position.z = 9;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+
+    function sizeRenderer() {
+      const w = hero.clientWidth;
+      const h = hero.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    sizeRenderer();
+
+    const goldColor = new THREE.Color(0xC9A84C);
+
+    // Group everything so we can rotate as one
+    const group = new THREE.Group();
+    scene.add(group);
+
+    // --- Base mesh: icosahedron wireframe ---
+    const icoGeo = new THREE.IcosahedronGeometry(2.6, 1);
+    const icoEdges = new THREE.EdgesGeometry(icoGeo);
+    const icoLines = new THREE.LineSegments(
+      icoEdges,
+      new THREE.LineBasicMaterial({ color: goldColor, transparent: true, opacity: 0.55 })
+    );
+    group.add(icoLines);
+
+    // --- Inner dodecahedron wireframe ---
+    const dodecaGeo = new THREE.DodecahedronGeometry(1.6, 0);
+    const dodecaEdges = new THREE.EdgesGeometry(dodecaGeo);
+    const dodecaLines = new THREE.LineSegments(
+      dodecaEdges,
+      new THREE.LineBasicMaterial({ color: goldColor, transparent: true, opacity: 0.35 })
+    );
+    group.add(dodecaLines);
+
+    // --- 12-fold Islamic star polygon (overlay) ---
+    // Construct as a {12/5} star polygon via polar coords on z=0 plane.
+    (function buildStar() {
+      const N = 12;        // points on outer circle
+      const step = 5;      // skip step => {12/5} star
+      const R = 3.4;       // radius
+      const positions = [];
+      const visited = new Array(N).fill(false);
+      let idx = 0;
+      for (let i = 0; i < N; i++) {
+        const a1 = (idx / N) * Math.PI * 2;
+        const next = (idx + step) % N;
+        const a2 = (next / N) * Math.PI * 2;
+        positions.push(R * Math.cos(a1), R * Math.sin(a1), 0);
+        positions.push(R * Math.cos(a2), R * Math.sin(a2), 0);
+        idx = next;
+      }
+      const starGeo = new THREE.BufferGeometry();
+      starGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      const starLines = new THREE.LineSegments(
+        starGeo,
+        new THREE.LineBasicMaterial({ color: goldColor, transparent: true, opacity: 0.7 })
+      );
+      group.add(starLines);
+
+      // Also build an 8-fold star inside it
+      const N2 = 8, step2 = 3, R2 = 2.1;
+      const pos2 = [];
+      let idx2 = 0;
+      for (let i = 0; i < N2; i++) {
+        const a1 = (idx2 / N2) * Math.PI * 2;
+        const n2 = (idx2 + step2) % N2;
+        const a2 = (n2 / N2) * Math.PI * 2;
+        pos2.push(R2 * Math.cos(a1), R2 * Math.sin(a1), 0);
+        pos2.push(R2 * Math.cos(a2), R2 * Math.sin(a2), 0);
+        idx2 = n2;
+      }
+      const star2Geo = new THREE.BufferGeometry();
+      star2Geo.setAttribute('position', new THREE.Float32BufferAttribute(pos2, 3));
+      const star2Lines = new THREE.LineSegments(
+        star2Geo,
+        new THREE.LineBasicMaterial({ color: goldColor, transparent: true, opacity: 0.5 })
+      );
+      group.add(star2Lines);
+
+      // Outer vertices as small points
+      const ptsPositions = [];
+      for (let i = 0; i < N; i++) {
+        const a = (i / N) * Math.PI * 2;
+        ptsPositions.push(R * Math.cos(a), R * Math.sin(a), 0);
+      }
+      const ptsGeo = new THREE.BufferGeometry();
+      ptsGeo.setAttribute('position', new THREE.Float32BufferAttribute(ptsPositions, 3));
+      const pts = new THREE.Points(ptsGeo, new THREE.PointsMaterial({
+        color: goldColor, size: 0.09, transparent: true, opacity: 0.85
+      }));
+      group.add(pts);
+    })();
+
+    // --- Particle field: 200 gold points scattered in a sphere of radius 8 ---
+    (function buildParticles() {
+      const COUNT = 200;
+      const radius = 8;
+      const positions = new Float32Array(COUNT * 3);
+      const velocities = new Float32Array(COUNT * 3);
+      for (let i = 0; i < COUNT; i++) {
+        // Uniform random point inside sphere of radius `radius`
+        let x, y, z, d;
+        do {
+          x = (Math.random() * 2 - 1);
+          y = (Math.random() * 2 - 1);
+          z = (Math.random() * 2 - 1);
+          d = x * x + y * y + z * z;
+        } while (d > 1);
+        positions[i * 3]     = x * radius;
+        positions[i * 3 + 1] = y * radius;
+        positions[i * 3 + 2] = z * radius;
+        velocities[i * 3]     = (Math.random() - 0.5) * 0.003;
+        velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.003;
+        velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.003;
+      }
+      const pgeo = new THREE.BufferGeometry();
+      pgeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const pmat = new THREE.PointsMaterial({
+        color: goldColor,
+        size: 0.04,
+        transparent: true,
+        opacity: 0.6,
+        sizeAttenuation: true
+      });
+      const particles = new THREE.Points(pgeo, pmat);
+      scene.add(particles);
+
+      // Expose updater for the animation loop
+      particles.userData.update = function () {
+        const pos = pgeo.attributes.position.array;
+        for (let i = 0; i < COUNT; i++) {
+          pos[i * 3]     += velocities[i * 3];
+          pos[i * 3 + 1] += velocities[i * 3 + 1];
+          pos[i * 3 + 2] += velocities[i * 3 + 2];
+          // Soft re-center if drifted too far
+          for (let k = 0; k < 3; k++) {
+            if (pos[i * 3 + k] > radius || pos[i * 3 + k] < -radius) {
+              velocities[i * 3 + k] *= -1;
+            }
+          }
+        }
+        pgeo.attributes.position.needsUpdate = true;
+      };
+      scene.userData.particles = particles;
+    })();
+
+    // --- Mouse parallax (subtle, dampened) ---
+    const target = { x: 0, y: 0 };
+    const current = { x: 0, y: 0 };
+    hero.addEventListener('mousemove', function (e) {
+      const rect = hero.getBoundingClientRect();
+      const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+      target.x = ny * 0.25;   // tilt around X based on vertical mouse
+      target.y = nx * 0.25;   // tilt around Y based on horizontal mouse
+    });
+
+    // --- Resize handler ---
+    let resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(sizeRenderer, 80);
+    });
+
+    // --- Animation loop ---
+    function animate() {
+      requestAnimationFrame(animate);
+      // base auto-rotation
+      group.rotation.x += 0.001;
+      group.rotation.y += 0.0015;
+
+      // dampened parallax tilt — added on top of base rotation
+      current.x += (target.x - current.x) * 0.05;
+      current.y += (target.y - current.y) * 0.05;
+      group.rotation.x += (current.x - group.userData.lastTiltX || 0) * 0; // base rotation handles motion; parallax tilts the whole group
+      group.position.x = current.y * 0.4;
+      group.position.y = -current.x * 0.4;
+
+      if (scene.userData.particles && scene.userData.particles.userData.update) {
+        scene.userData.particles.userData.update();
+        scene.userData.particles.rotation.y += 0.0004;
+      }
+
+      renderer.render(scene, camera);
+    }
+    animate();
+  })();
+
+  // ============================================================
+  // 2. GSAP + SCROLLTRIGGER
+  // ============================================================
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ---- Hero title char-by-char reveal ----
+    (function splitHeroTitle() {
+      const h1 = document.querySelector('.hero h1[data-split]');
+      if (!h1) return;
+      // Walk children, replacing each text node with per-char spans, leaving inline elements (.accent) intact but split.
+      function splitNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.nodeValue;
+          const frag = document.createDocumentFragment();
+          for (let i = 0; i < text.length; i++) {
+            const ch = text[i];
+            if (ch === ' ') {
+              frag.appendChild(document.createTextNode(' '));
+            } else {
+              const span = document.createElement('span');
+              span.className = 'char';
+              span.textContent = ch;
+              frag.appendChild(span);
+            }
+          }
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          // Recurse over a snapshot of childNodes
+          Array.from(node.childNodes).forEach(splitNode);
+        }
+      }
+      splitNode(h1);
+
+      const chars = h1.querySelectorAll('.char');
+      gsap.from(chars, {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.04,
+        delay: 0.2
+      });
+    })();
+
+    // ---- Section h2 slide in from left ----
+    document.querySelectorAll('section h2').forEach(function (h2) {
+      gsap.from(h2, {
+        x: -80,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: h2,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // ---- Number table rows: stagger in ----
+    (function () {
+      const table = document.getElementById('numerals-table');
+      if (!table) return;
+      const rows = table.querySelectorAll('tbody tr');
+      gsap.from(rows, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        ease: 'power2.out',
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: table,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    })();
+
+    // ---- Scholar cards: scale + fade ----
+    (function () {
+      const grid = document.getElementById('scholars-grid');
+      if (!grid) return;
+      const cards = grid.querySelectorAll('.scholar-card');
+      gsap.from(cards, {
+        opacity: 0,
+        scale: 0.85,
+        duration: 0.7,
+        ease: 'back.out(1.4)',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: grid,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    })();
+
+    // ---- Two-column quadratic comparison: slide in opposite directions ----
+    (function () {
+      const wrap = document.getElementById('quadratic-comparison');
+      if (!wrap) return;
+      const left = wrap.querySelector('.col-left');
+      const right = wrap.querySelector('.col-right');
+      if (left) {
+        gsap.from(left, {
+          x: -60, opacity: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: wrap, start: 'top 80%', toggleActions: 'play none none none' }
+        });
+      }
+      if (right) {
+        gsap.from(right, {
+          x: 60, opacity: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: wrap, start: 'top 80%', toggleActions: 'play none none none' }
+        });
+      }
+    })();
+
+    // ---- SVG "draw-on" effect for the completing-the-square diagram ----
+    (function () {
+      const fig = document.getElementById('completing-square-figure');
+      if (!fig) return;
+      const svg = fig.querySelector('svg');
+      if (!svg) return;
+
+      // Compute path/line/rect lengths and set dasharray + dashoffset to that length.
+      const drawables = svg.querySelectorAll('path, line, rect, circle');
+      const items = [];
+      drawables.forEach(function (el) {
+        let len = 0;
+        try {
+          if (typeof el.getTotalLength === 'function') {
+            len = el.getTotalLength();
+          }
+        } catch (e) { len = 0; }
+        if (!len || !isFinite(len)) {
+          // Approximate length for elements that don't support getTotalLength reliably
+          const bbox = el.getBBox();
+          len = 2 * (bbox.width + bbox.height) || 200;
+        }
+        el.style.strokeDasharray = len;
+        el.style.strokeDashoffset = len;
+        items.push({ el: el, length: len });
+      });
+
+      ScrollTrigger.create({
+        trigger: fig,
+        start: 'top 80%',
+        once: true,
+        onEnter: function () {
+          items.forEach(function (it, i) {
+            gsap.to(it.el, {
+              strokeDashoffset: 0,
+              duration: 1.6,
+              delay: i * 0.04,
+              ease: 'power2.out'
+            });
+          });
+        }
+      });
+    })();
+
+    // ---- Pull quote fade + scale, with gold border flash ----
+    document.querySelectorAll('blockquote').forEach(function (bq) {
+      gsap.fromTo(bq,
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1, scale: 1,
+          duration: 0.9, ease: 'power2.out',
+          scrollTrigger: {
+            trigger: bq,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+            onEnter: function () {
+              // Gold border flash
+              const original = bq.style.borderLeftColor || '';
+              const originalShadow = bq.style.boxShadow || '';
+              gsap.to(bq, {
+                boxShadow: '0 0 24px rgba(201, 168, 76, 0.55)',
+                duration: 0.4,
+                yoyo: true,
+                repeat: 1,
+                onComplete: function () { bq.style.boxShadow = originalShadow; }
+              });
+            }
+          }
+        }
+      );
+    });
+
+    // ---- Scroll progress bar (top fixed gold bar) ----
+    (function () {
+      const bar = document.getElementById('scroll-progress');
+      if (!bar) return;
+      gsap.to(bar, {
+        width: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true
+        }
+      });
+    })();
+  }
+
+  // ============================================================
+  // 3. ANIME.JS — counters, typewriter, Arabic entrance
+  // ============================================================
+  if (typeof anime !== 'undefined') {
+
+    // ---- Counters in the numerals table ----
+    (function () {
+      const table = document.getElementById('numerals-table');
+      if (!table) return;
+      const cells = table.querySelectorAll('td.value[data-count]');
+      // Store target then reset innerHTML to 0
+      cells.forEach(function (c) {
+        c.dataset.target = c.getAttribute('data-count');
+        c.innerHTML = '0';
+      });
+
+      let triggered = false;
+      function trigger() {
+        if (triggered) return;
+        triggered = true;
+        cells.forEach(function (c, i) {
+          const target = parseInt(c.dataset.target, 10);
+          const obj = { v: 0 };
+          anime({
+            targets: obj,
+            v: target,
+            round: 1,
+            easing: 'easeOutExpo',
+            duration: 1600,
+            delay: i * 90,
+            update: function () { c.innerHTML = obj.v; }
+          });
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              trigger();
+              io.disconnect();
+            }
+          });
+        }, { threshold: 0.25 });
+        io.observe(table);
+      } else {
+        trigger();
+      }
+    })();
+
+    // ---- Typewriter reveal for premise headings ----
+    (function () {
+      const headings = document.querySelectorAll('.premise-heading[data-typewriter]');
+      headings.forEach(function (h) {
+        const full = h.getAttribute('data-typewriter');
+        h.textContent = '';
+        let started = false;
+        function run() {
+          if (started) return;
+          started = true;
+          const chars = full.split('');
+          chars.forEach(function (ch, i) {
+            setTimeout(function () {
+              h.textContent += ch;
+            }, i * 22);
+          });
+        }
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                run();
+                io.disconnect();
+              }
+            });
+          }, { threshold: 0.4 });
+          io.observe(h);
+        } else {
+          run();
+        }
+      });
+    })();
+
+    // ---- Arabic calligraphy entrance after 800ms ----
+    (function () {
+      const arabic = document.getElementById('hero-arabic');
+      if (!arabic) return;
+      arabic.style.opacity = '0';
+      arabic.style.transformOrigin = 'center center';
+      setTimeout(function () {
+        anime({
+          targets: arabic,
+          opacity: [0, 0.85],
+          scale: [0.5, 1],
+          rotate: [-20, 0],
+          easing: 'easeOutElastic(1, 0.6)',
+          duration: 1400
+        });
+      }, 800);
+    })();
+  }
+
+  // ============================================================
+  // 4. CUSTOM CURSOR (non-touch devices only)
+  // ============================================================
+  if (!isTouch) {
+    const cursor = document.getElementById('cursor-glow');
+    if (cursor) {
+      document.body.classList.add('cursor-active');
+      const target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+      const pos = { x: target.x, y: target.y };
+
+      document.addEventListener('mousemove', function (e) {
+        target.x = e.clientX;
+        target.y = e.clientY;
+      });
+
+      function tick() {
+        pos.x += (target.x - pos.x) * 0.18;
+        pos.y += (target.y - pos.y) * 0.18;
+        cursor.style.transform = 'translate(' + pos.x + 'px, ' + pos.y + 'px) translate(-50%, -50%)';
+        requestAnimationFrame(tick);
+      }
+      tick();
+
+      // Expand on hover over headings or cards
+      const expandSelectors = 'h1, h2, h3, h4, .scholar-card, .premise, a, blockquote';
+      document.querySelectorAll(expandSelectors).forEach(function (el) {
+        el.addEventListener('mouseenter', function () { cursor.classList.add('expanded'); });
+        el.addEventListener('mouseleave', function () { cursor.classList.remove('expanded'); });
+      });
+    }
+  }
+});
+</script>
+
+</body>
+</html>
